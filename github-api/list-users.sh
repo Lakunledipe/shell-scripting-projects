@@ -20,7 +20,13 @@ TOKEN=$token
 REPO_OWNER=$1
 REPO_NAME=$2
 
-helper()
+function  helper {
+ expected_cmd_args=2
+ if [ $# -ne $expected_cmd_args]; then
+  echo "please execute the script with required cmd args"
+  echo "asd"
+  
+}
 
 # Function to make a GET request to the GitHub API
 function github_api_get {
@@ -47,16 +53,11 @@ function list_users_with_read_access {
     fi
 }
 
-function  helper{
- expected_cmd_args=2
- if [ $# -ne $expected_cmd_args]; then
-  echo "please execute the script with required cmd args"
-  echo "asd"
-  
-  }
-
-
 # Main script
 
+# 1. Call the helper function FIRST to check arguments
+helper "$@"
+
+# 2. Run the main function
 echo "Listing users with read access to ${REPO_OWNER}/${REPO_NAME}..."
 list_users_with_read_access
