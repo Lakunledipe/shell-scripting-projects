@@ -25,7 +25,6 @@ function  helper {
  if [ $# -ne $expected_cmd_args]; then
   echo "please execute the script with required cmd args"
   echo "asd"
-  
 }
 
 # Function to make a GET request to the GitHub API
