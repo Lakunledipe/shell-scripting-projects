@@ -23,11 +23,9 @@ REPO_NAME=$2
 # Function to check for required arguments
 function helper {
   expected_cmd_args=2
-  # FIXED: Added a space before the ']'
   if [ $# -ne $expected_cmd_args ]; then
     echo "Usage: $0 <repo_owner> <repo_name>"
     echo "Example: $0 Lakunledipe shell-scripting-projects"
-    # FIXED: Added 'exit 1' to stop the script on error
     exit 1
   fi
 }
