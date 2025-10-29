@@ -20,11 +20,16 @@ TOKEN=$token
 REPO_OWNER=$1
 REPO_NAME=$2
 
-function  helper {
- expected_cmd_args=2
- if [ $# -ne $expected_cmd_args]; then
-  echo "please execute the script with required cmd args"
-  echo "asd"
+# Function to check for required arguments
+function helper {
+  expected_cmd_args=2
+  # FIXED: Added a space before the ']'
+  if [ $# -ne $expected_cmd_args ]; then
+    echo "Usage: $0 <repo_owner> <repo_name>"
+    echo "Example: $0 Lakunledipe shell-scripting-projects"
+    # FIXED: Added 'exit 1' to stop the script on error
+    exit 1
+  fi
 }
 
 # Function to make a GET request to the GitHub API
